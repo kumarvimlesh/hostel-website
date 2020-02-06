@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+ <pre>
+ 	<p>
+ 	<?php
+if(isset($_POST["submit"]))
+{
+	$rollnumber=$_POST['rollnumber'];
+	$studentname=$_POST['studentname'];
+	$address=$_POST['address'];
+    $pincode=$_POST['pincode'];
+    $phone=$_POST['phone'];
+    $emailid=$_POST['emailid'];
+    $fathername=$_POST['fathername'];
+    $fatheraddress=$_POST['fatheraddress'];
+    $fathermonumber=$_POST['fathermonumber'];
+    $password=$_POST['password'];
+	$con=mysqli_connect("localhost","root","","nitdelhi hostel");
+	 $sql="insert into newregistration(rollnumber,studentname,address,phone,emailid,pincode,fathername,fatheraddress,fathermonumber,password) values ($rollnumber,'$studentname','$address',$phone,'$emailid',$pincode,'$fathername','$fatheraddress',$fathermonumber,'$password')";
+ $query=mysqli_query($con,$sql);
+ if($query)
+ {
+ 	echo "<br><h1>registered successfully</h1> ";
+ }
+ else
+ {
+ 	echo "<h2>Try Again</h2>";
+ }
+}
+else
+{
+	echo "<h1>Try Again</h1>";
+}
+ ?>
+<P>
+ </pre>
+</body>
+</html>
